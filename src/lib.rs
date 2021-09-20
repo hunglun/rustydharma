@@ -11,10 +11,10 @@ mod tests {
     
     #[test]
     fn calculator1() {
-        assert!(grammar::TermParser::new().parse("22").is_ok());
-        assert!(grammar::TermParser::new().parse("(22)").is_ok());
-        assert!(grammar::TermParser::new().parse("((((22))))").is_ok());
-        assert!(grammar::TermParser::new().parse("((22)").is_err());
+        assert!(grammar::ExprParser::new().parse("22").is_ok());
+        assert!(grammar::ExprParser::new().parse("(22)").is_ok());
+        assert!(grammar::ExprParser::new().parse("((((22))))").is_ok());
+        assert!(grammar::ExprParser::new().parse("((22)").is_err());
     }
     
 }

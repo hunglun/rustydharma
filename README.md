@@ -5,7 +5,7 @@ See how far it can go.
 Work through the tutorial first:
 https://lalrpop.github.io/lalrpop/tutorial/001_adding_lalrpop.html
 
-1. [] handle full expression : 18 September 2021
+1. [X] handle full expression : 18 September 2021 -> 21 September 2021
 2. [] build AST : 18 September 2021
 3. [] macros : 18 September 2021
 4. [] fallible actions : 19 September 2021 morning
