@@ -40,4 +40,17 @@ mod tests {
             .unwrap();
         assert_eq!(&format!("{:?}", expr), "((22 * 44) + 66)");
     }
+
+    lalrpop_mod!(pub dharma);
+    use std::fs;
+    #[test]
+    fn dharma() {
+        let content = fs::read_to_string("grammar.dg")
+        .expect("Something went wrong reading the file");
+        let expr = dharma::ExprParser::new()
+            .parse(&content.to_string())
+            .unwrap();
+        assert_eq!(&format!("{:?}", expr), "((22 * 44) + 66)");
+    }
+    
 }

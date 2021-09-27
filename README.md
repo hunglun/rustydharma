@@ -6,7 +6,9 @@ Work through the tutorial first:
 https://lalrpop.github.io/lalrpop/tutorial/001_adding_lalrpop.html
 
 1. [X] handle full expression : 18 September 2021 -> 21 September 2021
-2. [] build AST : 18 September 2021
+2. [X] build AST : 18 September 2021 -> 27 September
+       create a dharma.lalrpop and some test cases : 27 September 
+       implement the gramamr using lesson learnt from AST.
 3. [] macros : 18 September 2021
 4. [] fallible actions : 19 September 2021 morning
 5. [] error recovery : 19 September 2021 morning
