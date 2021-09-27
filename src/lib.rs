@@ -7,14 +7,28 @@ mod tests {
         assert_eq!(2 + 2, 4);
     }
 
-    lalrpop_mod!(pub grammar); // synthesized by LALRPOP
+    lalrpop_mod!(pub calculator1); // synthesized by LALRPOP
     
     #[test]
     fn calculator1() {
-        assert!(grammar::ExprParser::new().parse("22").is_ok());
-        assert!(grammar::ExprParser::new().parse("(22)").is_ok());
-        assert!(grammar::ExprParser::new().parse("((((22))))").is_ok());
-        assert!(grammar::ExprParser::new().parse("((22)").is_err());
-    }
+        assert!(calculator1::ExprParser::new().parse("22").is_ok());
+        assert!(calculator1::ExprParser::new().parse("(22)").is_ok());
+        assert!(calculator1::ExprParser::new().parse("((((22))))").is_ok());
+        assert!(calculator1::ExprParser::new().parse("((22)").is_err());
+        assert_eq!(calculator1::ExprParser::new().parse("((22))").unwrap(), 22);
+        
     
+        let expr = calculator1::ExprParser::new()
+            .parse("22 * 44 + 66")
+            .unwrap();
+        assert_eq!(expr, ((22 * 44) + 66));
+         
+        let expr = calculator1::ExprParser::new()
+            .parse("22 * (44 + 66)")
+            .unwrap();
+        assert_eq!(expr, (22 * ( 44 + 66)));
+        
+    }
+
+
 }
