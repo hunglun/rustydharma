@@ -1,1 +1,5 @@
-22 * 44 + 66
+hello :=
+    nihao hallo hola!
+
+main :=
+    +hello+
