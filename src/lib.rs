@@ -1,4 +1,5 @@
 #[macro_use] extern crate lalrpop_util;
+mod ast;
 
 #[cfg(test)]
 mod tests {
@@ -31,4 +32,12 @@ mod tests {
     }
 
 
+    lalrpop_mod!(pub calculator4);
+    #[test]
+    fn calculator4() {
+        let expr = calculator4::ExprParser::new()
+            .parse("22 * 44 + 66")
+            .unwrap();
+        assert_eq!(&format!("{:?}", expr), "((22 * 44) + 66)");
+    }
 }
