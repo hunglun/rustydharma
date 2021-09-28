@@ -20,6 +20,21 @@ pub enum Opcode {
     Sub,
 }
 
+impl Expr {
+    pub fn evaluate(&self) -> Option<i32> {
+        use self::Opcode::*;
+        use self::Expr::*;
+        match *self {
+            Number(n) => Some(n),
+            Op(ref l, Mul, ref r) => Some(l.evaluate().unwrap() * r.evaluate().unwrap()),
+            Op(ref l, Div, ref r) => Some(l.evaluate().unwrap() / r.evaluate().unwrap()),
+            Op(ref l, Add, ref r) => Some(l.evaluate().unwrap() + r.evaluate().unwrap()),
+            Op(ref l, Sub, ref r) => Some(l.evaluate().unwrap() - r.evaluate().unwrap()),
+            Error => None
+        }
+    }
+}
+
 impl Debug for Expr {
     fn fmt(&self, fmt: &mut Formatter) -> Result<(), Error> {
         use self::Expr::*;

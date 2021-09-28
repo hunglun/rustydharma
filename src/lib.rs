@@ -39,11 +39,14 @@ mod tests {
             .parse("22 * 44 + 66")
             .unwrap();
         assert_eq!(&format!("{:?}", expr), "((22 * 44) + 66)");
+        let ans =  expr.evaluate().unwrap();
+        assert_eq!(ans, ((22 * 44) + 66));
     }
 
     lalrpop_mod!(pub dharma);
     use std::fs;
     #[test]
+    #[ignore]
     fn dharma() {
         let content = fs::read_to_string("grammar.dg")
         .expect("Something went wrong reading the file");
